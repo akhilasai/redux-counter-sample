@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "default_open_files": [
+    "src/pages/AnotherPage.js", 
+    "src/pages/MainPage.js"
+    ],
+  "read_only_files": [
+    "tests/*", 
+    ".gitignore", 
+    "configuration.json"
+    ],
+  "buttons": {
+    "Install Packages": {
+      "command": "npm install"
+    },
+    "Start Dev Server": {
+      "command": "npm start"
+    },
+    "Run Test Cases": {
+      "command": "npm test -- --watchAll=false"
+    }
+  },
+  "scoring": {
+    "command": "npm install && npm run test -- --testResultsProcessor=\"jest-junit\" --watchAll=false",
+    "files": {
+      "junit.xml": "React"
+    }
+  },
+  "post_start": {
+    "commands": ["npm install"]
+  },
+  "preview_port": 3000
+}
